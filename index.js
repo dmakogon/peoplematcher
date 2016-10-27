@@ -16,7 +16,7 @@ var connectionString = host;
 mongo.connect(connectionString, function(err, db) {
   assert.equal(null, err);
   var col = db.collection('_User');
-  col.find({screenName: username},{Interests:1,_id:0}).toArray(function(err, docs) {
+  col.find({username: username},{Interests:1,_id:0}).toArray(function(err, docs) {
       var userInterests = docs[0].Interests;
       console.log(userInterests);
       col.aggregate( [
