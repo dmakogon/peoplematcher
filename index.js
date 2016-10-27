@@ -22,7 +22,7 @@ mongo.connect(connectionString, function (err, db) {
 
         col.aggregate([
             { $match: { $and: [
-                {username: { $ne: 'dmak@dmak.io' }},
+                {username: { $ne: usernameParam }},
                 {username: {$not: {$in: userMatchHistory}}},
                 {Interests: { $in: userInterests }}
             ] } },
