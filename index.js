@@ -20,7 +20,7 @@ mongo.connect(connectionString, function(err, db) {
       var userInterests = docs[0].Interests;
       console.log(userInterests);
       col.aggregate( [
-        { $match: { Interests: { $in: userInterests }}},
+        { $match: { username: {$ne: username}, Interests: { $in: userInterests }}},
     { $project: { 
        "username":1,
        "screenName":1,
