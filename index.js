@@ -36,6 +36,7 @@ mongo.connect(connectionString, function (err, db) {
 
                 }
             },
+            { $match: { matchSize: {$gte: 2}}}, // only allow chance encounters with multiple matching interests
             { $sort: { matchSize: -1 } },
             { $limit: 2 }
         ]).toArray(function (err, matchdocs) {
